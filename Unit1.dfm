@@ -891,6 +891,38 @@ object Form1: TForm1
       000000000000000000000000000000FFFFFF}
     Transparent = True
   end
+  object Label1: TLabel
+    Left = 192
+    Top = 288
+    Width = 586
+    Height = 37
+    Alignment = taCenter
+    Caption = 'Punkt dla gracza nr 1.Aktualny wynik: 0:0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object Button1: TButton
+    Left = 336
+    Top = 344
+    Width = 297
+    Height = 105
+    Cursor = crHandPoint
+    Caption = 'Nast'#281'pna runda'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    Visible = False
+    OnClick = Button1Click
+  end
   object TimerPaddleLeftUp: TTimer
     Enabled = False
     Interval = 20
