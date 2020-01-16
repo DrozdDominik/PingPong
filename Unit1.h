@@ -15,8 +15,20 @@ class TForm1 : public TForm
 __published:	// IDE-managed Components
         TShape *background;
         TImage *ball;
-        TImage *paddle_left;
-        TImage *paddle_right;
+        TImage *paddleLeft;
+        TImage *paddleRight;
+        TTimer *TimerPaddleLeftUp;
+        TTimer *TimerPaddleLeftDown;
+        TTimer *TimerPaddleRightUp;
+        TTimer *TimerPaddleRightDown;
+        void __fastcall TimerPaddleLeftUpTimer(TObject *Sender);
+        void __fastcall TimerPaddleLeftDownTimer(TObject *Sender);
+        void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall TimerPaddleRightDownTimer(TObject *Sender);
+        void __fastcall TimerPaddleRightUpTimer(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
