@@ -86,9 +86,16 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
        TimerBall -> Enabled = false;
        ball -> Visible = false;
        scoreRight++;
+       if(scoreRight >= 10)
+       {
+          Button2 -> Caption = "Wygrana gracza nr 2. Nowa gra?";
+          Button2 -> Visible = true;
+       } else
+       {
        Label1 -> Caption = "Punkt dla gracza nr 2. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
        Label1 -> Visible = true;
        Button1 -> Visible = true;
+       }
     } else if((ball -> Top > paddleLeft -> Top - ball -> Height) &&
     (ball -> Top < paddleLeft -> Top + paddleLeft -> Height + ball -> Height) &&
     (ball -> Left <= paddleLeft -> Left + paddleLeft -> Width))
@@ -103,9 +110,16 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
        TimerBall -> Enabled = false;
        ball -> Visible = false;
        scoreLeft++;
+       if(scoreLeft >= 10)
+       {
+          Button2 -> Caption = "Wygrana gracza nr 1. Nowa gra?";
+          Button2 -> Visible = true;
+       } else
+       {
        Label1 -> Caption = "Punkt dla gracza nr 1. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
        Label1 -> Visible = true;
        Button1 -> Visible = true;
+       }
     } else if((ball -> Top > paddleRight -> Top - ball -> Height) &&
     (ball -> Top < paddleRight -> Top + paddleRight -> Height + ball -> Height) &&
     (ball -> Left + ball -> Width >= paddleRight -> Left))
@@ -125,6 +139,20 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
    ball -> Visible = true;
    TimerBall -> Enabled = true;
 
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+        Button2 -> Visible = false;
+        Button1 -> Visible = false;
+        Label1 -> Visible = false;
+        scoreLeft = 0;
+        scoreRight = 0;
+        ball -> Top = 300;
+        ball -> Left = 300;
+        ball -> Visible = true;
+        TimerBall -> Enabled = true;
 }
 //---------------------------------------------------------------------------
 

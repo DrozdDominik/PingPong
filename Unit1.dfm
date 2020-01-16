@@ -923,6 +923,23 @@ object Form1: TForm1
     Visible = False
     OnClick = Button1Click
   end
+  object Button2: TButton
+    Left = 112
+    Top = 80
+    Width = 761
+    Height = 105
+    Cursor = crHandPoint
+    Caption = ' Wygrana gracza nr 1. Nowa gra?'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -40
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    Visible = False
+    OnClick = Button2Click
+  end
   object TimerPaddleLeftUp: TTimer
     Enabled = False
     Interval = 20
@@ -952,7 +969,7 @@ object Form1: TForm1
     Top = 56
   end
   object TimerBall: TTimer
-    Interval = 50
+    Interval = 25
     OnTimer = TimerBallTimer
     Left = 472
     Top = 8
