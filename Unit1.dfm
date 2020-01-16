@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 192
-  Top = 125
+  Left = 240
+  Top = 196
   Width = 1044
   Height = 540
   Caption = 'Form1'
@@ -11,6 +11,8 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
   PixelsPerInch = 96
   TextHeight = 13
   object background: TShape
@@ -129,7 +131,7 @@ object Form1: TForm1
       FFFF}
     Transparent = True
   end
-  object paddle_left: TImage
+  object paddleLeft: TImage
     Left = 20
     Top = 128
     Width = 20
@@ -506,10 +508,11 @@ object Form1: TForm1
       00000000000000000000000000000000000000000000FFFFFF00000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000FFFFFF}
+    Transparent = True
   end
-  object paddle_right: TImage
+  object paddleRight: TImage
     Left = 980
-    Top = 120
+    Top = 128
     Width = 20
     Height = 196
     AutoSize = True
@@ -884,5 +887,34 @@ object Form1: TForm1
       00000000000000000000000000000000000000000000FFFFFF00000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000FFFFFF}
+    Transparent = True
+  end
+  object TimerPaddleLeftUp: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = TimerPaddleLeftUpTimer
+    Left = 16
+    Top = 8
+  end
+  object TimerPaddleLeftDown: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = TimerPaddleLeftDownTimer
+    Left = 16
+    Top = 40
+  end
+  object TimerPaddleRightUp: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = TimerPaddleRightUpTimer
+    Left = 968
+    Top = 24
+  end
+  object TimerPaddleRightDown: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = TimerPaddleRightDownTimer
+    Left = 968
+    Top = 56
   end
 end
