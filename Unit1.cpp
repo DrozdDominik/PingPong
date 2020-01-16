@@ -11,6 +11,8 @@ TForm1 *Form1;
 
 int verticalChange = -8;
 int horizontalChange = -8;
+int scoreLeft = 0;
+int scoreRight = 0;
 
 
 //---------------------------------------------------------------------------
@@ -83,6 +85,10 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     {
        TimerBall -> Enabled = false;
        ball -> Visible = false;
+       scoreRight++;
+       Label1 -> Caption = "Punkt dla gracza nr 2. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
+       Label1 -> Visible = true;
+       Button1 -> Visible = true;
     } else if((ball -> Top > paddleLeft -> Top - ball -> Height) &&
     (ball -> Top < paddleLeft -> Top + paddleLeft -> Height + ball -> Height) &&
     (ball -> Left <= paddleLeft -> Left + paddleLeft -> Width))
@@ -96,12 +102,28 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     {
        TimerBall -> Enabled = false;
        ball -> Visible = false;
+       scoreLeft++;
+       Label1 -> Caption = "Punkt dla gracza nr 1. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
+       Label1 -> Visible = true;
+       Button1 -> Visible = true;
     } else if((ball -> Top > paddleRight -> Top - ball -> Height) &&
     (ball -> Top < paddleRight -> Top + paddleRight -> Height + ball -> Height) &&
     (ball -> Left + ball -> Width >= paddleRight -> Left))
     {
      if(horizontalChange > 0) horizontalChange = -horizontalChange;
     }
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+   Button1 -> Visible = false;
+   Label1 -> Visible = false;
+   ball -> Left = 512;
+   ball -> Top = 240;
+   ball -> Visible = true;
+   TimerBall -> Enabled = true;
 
 }
 //---------------------------------------------------------------------------
