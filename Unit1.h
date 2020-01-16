@@ -7,10 +7,16 @@
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
+#include <ExtCtrls.hpp>
+#include <Graphics.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
+        TShape *background;
+        TImage *ball;
+        TImage *paddle_left;
+        TImage *paddle_right;
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
