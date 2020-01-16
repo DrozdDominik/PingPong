@@ -24,6 +24,7 @@ __published:	// IDE-managed Components
         TTimer *TimerBall;
         TButton *Button1;
         TLabel *Label1;
+        TButton *Button2;
         void __fastcall TimerPaddleLeftUpTimer(TObject *Sender);
         void __fastcall TimerPaddleLeftDownTimer(TObject *Sender);
         void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
@@ -34,6 +35,7 @@ __published:	// IDE-managed Components
         void __fastcall TimerPaddleRightUpTimer(TObject *Sender);
         void __fastcall TimerBallTimer(TObject *Sender);
         void __fastcall Button1Click(TObject *Sender);
+        void __fastcall Button2Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
