@@ -8,6 +8,11 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
+
+int verticalChange = -8;
+int horizontalChange = -8;
+
+
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
@@ -59,4 +64,45 @@ void __fastcall TForm1::TimerPaddleRightUpTimer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::TimerBallTimer(TObject *Sender)
+{
+    ball -> Left += horizontalChange;
+    ball -> Top += verticalChange;
+
+    // odbicie od góry
+    if(ball -> Top - 5 < background -> Top) verticalChange = -verticalChange;
+
+    // odbicie od do³u
+    if(ball -> Top + ball -> Height + 5 > background -> Height) verticalChange = -verticalChange;
+
+    // odbicie i nieudane odbicie od lewej paletki
+
+    if(ball -> Left < paddleLeft -> Left)
+    {
+       TimerBall -> Enabled = false;
+       ball -> Visible = false;
+    } else if((ball -> Top > paddleLeft -> Top - ball -> Height) &&
+    (ball -> Top < paddleLeft -> Top + paddleLeft -> Height + ball -> Height) &&
+    (ball -> Left <= paddleLeft -> Left + paddleLeft -> Width))
+    {
+     if(horizontalChange < 0) horizontalChange = -horizontalChange;
+    }
+
+     // odbicie i nieudane odbicie od prawej paletki
+
+    if(ball -> Left > paddleRight -> Left)
+    {
+       TimerBall -> Enabled = false;
+       ball -> Visible = false;
+    } else if((ball -> Top > paddleRight -> Top - ball -> Height) &&
+    (ball -> Top < paddleRight -> Top + paddleRight -> Height + ball -> Height) &&
+    (ball -> Left + ball -> Width >= paddleRight -> Left))
+    {
+     if(horizontalChange > 0) horizontalChange = -horizontalChange;
+    }
+
+}
+//---------------------------------------------------------------------------
 

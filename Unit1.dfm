@@ -3,8 +3,10 @@ object Form1: TForm1
   Top = 196
   Width = 1044
   Height = 540
-  Caption = 'Form1'
+  Caption = 'PingPong'
   Color = clBtnFace
+  UseDockManager = True
+  DockSite = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,8 +26,8 @@ object Form1: TForm1
     Brush.Color = clSilver
   end
   object ball: TImage
-    Left = 448
-    Top = 152
+    Left = 296
+    Top = 32
     Width = 32
     Height = 32
     AutoSize = True
@@ -916,5 +918,11 @@ object Form1: TForm1
     OnTimer = TimerPaddleRightDownTimer
     Left = 968
     Top = 56
+  end
+  object TimerBall: TTimer
+    Interval = 50
+    OnTimer = TimerBallTimer
+    Left = 472
+    Top = 8
   end
 end
