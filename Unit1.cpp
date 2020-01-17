@@ -81,7 +81,7 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
 
     // odbicie i nieudane odbicie od lewej paletki
 
-    if(ball -> Left < paddleLeft -> Left)
+    if(ball -> Left < paddleLeft -> Left - paddleLeft -> Width)
     {
        TimerBall -> Enabled = false;
        ball -> Visible = false;
@@ -99,13 +99,29 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     } else if((ball -> Top > paddleLeft -> Top - ball -> Height) &&
     (ball -> Top < paddleLeft -> Top + paddleLeft -> Height + ball -> Height) &&
     (ball -> Left <= paddleLeft -> Left + paddleLeft -> Width))
+    {if(ball -> Top < paddleLeft -> Top + (paddleLeft -> Height / 2) + 35 &&
+     ball -> Top > paddleLeft -> Top + (paddleLeft -> Height / 2) - 35 )
+    {
+      randomize();
+      if(horizontalChange < 0) horizontalChange = -horizontalChange;
+      if(TimerBall -> Interval > 12)
+      {
+      TimerBall -> Interval = TimerBall -> Interval - random(4);
+      } else
+      {
+       if(horizontalChange < 0) horizontalChange = -(horizontalChange - random(5));
+       verticalChange = random(10) + 3;
+       TimerBall -> Interval = 4;
+      }
+    } else
     {
      if(horizontalChange < 0) horizontalChange = -horizontalChange;
+    }
     }
 
      // odbicie i nieudane odbicie od prawej paletki
 
-    if(ball -> Left > paddleRight -> Left)
+    if(ball -> Left > paddleRight -> Left + paddleRight -> Width)
     {
        TimerBall -> Enabled = false;
        ball -> Visible = false;
@@ -123,8 +139,24 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     } else if((ball -> Top > paddleRight -> Top - ball -> Height) &&
     (ball -> Top < paddleRight -> Top + paddleRight -> Height + ball -> Height) &&
     (ball -> Left + ball -> Width >= paddleRight -> Left))
+    {if(ball -> Top < paddleRight -> Top + (paddleRight -> Height / 2) + 35 &&
+     ball -> Top > paddleRight -> Top + (paddleRight -> Height / 2) - 35 )
     {
+      randomize();
+      if(horizontalChange > 0) horizontalChange = -horizontalChange;
+      if(TimerBall -> Interval > 12)
+      {
+      TimerBall -> Interval = TimerBall -> Interval - random(4);
+      }else
+      {
+       if(horizontalChange > 0) horizontalChange = -(horizontalChange + random(5));
+       verticalChange = random(10) + 3;
+       TimerBall -> Interval = 4;
+      }
+    }else
+     {
      if(horizontalChange > 0) horizontalChange = -horizontalChange;
+     }
     }
 
 }
@@ -137,6 +169,10 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
    ball -> Left = 512;
    ball -> Top = 240;
    ball -> Visible = true;
+   randomize();
+   verticalChange = -1* (random(5) + 5);
+   horizontalChange = -1* (random(5) + 5);
+   TimerBall -> Interval = 25;
    TimerBall -> Enabled = true;
 
 }
@@ -152,6 +188,9 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
         ball -> Top = 300;
         ball -> Left = 300;
         ball -> Visible = true;
+        verticalChange = -8;
+        horizontalChange = -8;
+        TimerBall -> Interval = 25;
         TimerBall -> Enabled = true;
 }
 //---------------------------------------------------------------------------
