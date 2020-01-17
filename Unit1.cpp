@@ -202,3 +202,14 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+  paddleLeft -> Enabled = true;
+  paddleRight -> Enabled = true;
+  TimerBall -> Enabled = true;
+  Button3 -> Visible = false;
+}
+//---------------------------------------------------------------------------
+
