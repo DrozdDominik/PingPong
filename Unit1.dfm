@@ -139,6 +139,7 @@ object Form1: TForm1
     Width = 20
     Height = 196
     AutoSize = True
+    Enabled = False
     Picture.Data = {
       07544269746D6170262E0000424D262E00000000000036000000280000001400
       0000C40000000100180000000000F02D0000230B0000230B0000000000000000
@@ -518,6 +519,7 @@ object Form1: TForm1
     Width = 20
     Height = 196
     AutoSize = True
+    Enabled = False
     Picture.Data = {
       07544269746D6170262E0000424D262E00000000000036000000280000001400
       0000C40000000100180000000000F02D0000230B0000230B0000000000000000
@@ -940,6 +942,21 @@ object Form1: TForm1
     Visible = False
     OnClick = Button2Click
   end
+  object Button3: TButton
+    Left = 384
+    Top = 216
+    Width = 209
+    Height = 57
+    Caption = 'Start gry!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = Button3Click
+  end
   object TimerPaddleLeftUp: TTimer
     Enabled = False
     Interval = 20
@@ -969,6 +986,7 @@ object Form1: TForm1
     Top = 56
   end
   object TimerBall: TTimer
+    Enabled = False
     Interval = 25
     OnTimer = TimerBallTimer
     Left = 472
