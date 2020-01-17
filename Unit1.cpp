@@ -84,7 +84,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
 
     if(ball -> Left < paddleLeft -> Left)
     {
-       sndPlaySound("snd/fail.wav", SND_ASYNC);
+      // sndPlaySound("snd/fail.wav", SND_ASYNC);
+       PlaySound("FAIL", HInstance, SND_ASYNC | SND_RESOURCE);
        TimerBall -> Enabled = false;
        ball -> Visible = false;
        scoreRight++;
@@ -92,7 +93,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
        {
           Button2 -> Caption = "Wygrana gracza nr 2. Nowa gra?";
           Button2 -> Visible = true;
-          sndPlaySound("snd/gameover.wav", SND_ASYNC);
+          //sndPlaySound("snd/gameover.wav", SND_ASYNC);
+          PlaySound("GAMEOVER", HInstance, SND_ASYNC | SND_RESOURCE);
        } else
        {
        Label1 -> Caption = "Punkt dla gracza nr 2. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
@@ -102,7 +104,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     } else if((ball -> Top > paddleLeft -> Top - ball -> Height) &&
     (ball -> Top < paddleLeft -> Top + paddleLeft -> Height + ball -> Height) &&
     (ball -> Left <= paddleLeft -> Left + paddleLeft -> Width))
-    { sndPlaySound("snd/ball.wav", SND_ASYNC);
+    { //sndPlaySound("snd/ball.wav", SND_ASYNC);
+      PlaySound("BALL", HInstance, SND_ASYNC | SND_RESOURCE);
      if(ball -> Top < paddleLeft -> Top + (paddleLeft -> Height / 2) + 35 &&
      ball -> Top > paddleLeft -> Top + (paddleLeft -> Height / 2) - 35 )
     {
@@ -127,7 +130,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
 
     if(ball -> Left > paddleRight -> Left)
     {
-       sndPlaySound("snd/fail.wav", SND_ASYNC);
+       //sndPlaySound("snd/fail.wav", SND_ASYNC);
+       PlaySound("FAIL", HInstance, SND_ASYNC | SND_RESOURCE);
        TimerBall -> Enabled = false;
        ball -> Visible = false;
        scoreLeft++;
@@ -135,7 +139,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
        {
           Button2 -> Caption = "Wygrana gracza nr 1. Nowa gra?";
           Button2 -> Visible = true;
-          sndPlaySound("snd/gameover.wav", SND_ASYNC);
+         // sndPlaySound("snd/gameover.wav", SND_ASYNC);
+         PlaySound("GAMEOVER", HInstance, SND_ASYNC | SND_RESOURCE);
        } else
        {
        Label1 -> Caption = "Punkt dla gracza nr 1. Aktualny wynik: " + IntToStr(scoreLeft) + ":" + IntToStr(scoreRight);
@@ -145,7 +150,8 @@ void __fastcall TForm1::TimerBallTimer(TObject *Sender)
     } else if((ball -> Top > paddleRight -> Top - ball -> Height) &&
     (ball -> Top < paddleRight -> Top + paddleRight -> Height + ball -> Height) &&
     (ball -> Left + ball -> Width >= paddleRight -> Left))
-    {sndPlaySound("snd/ball.wav", SND_ASYNC);
+    {//sndPlaySound("snd/ball.wav", SND_ASYNC);
+       PlaySound("BALL", HInstance, SND_ASYNC | SND_RESOURCE);
      if(ball -> Top < paddleRight -> Top + (paddleRight -> Height / 2) + 35 &&
      ball -> Top > paddleRight -> Top + (paddleRight -> Height / 2) - 35 )
     {

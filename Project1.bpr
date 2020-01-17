@@ -5,7 +5,7 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Project1.exe"/>
     <OBJFILES value="Project1.obj Unit1.obj"/>
-    <RESFILES value="Project1.res"/>
+    <RESFILES value="Project1.res snd\resources.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Unit1.dfm"/>
     <LIBFILES value=""/>
@@ -14,7 +14,7 @@
     <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dclocx.bpi"/>
     <PATHCPP value=".;"/>
     <PATHPAS value=".;"/>
-    <PATHRC value=".;"/>
+    <PATHRC value=".;snd;snd"/>
     <PATHASM value=".;"/>
     <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
@@ -22,8 +22,8 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="Project1.cpp"/>
-    <INCLUDEPATH value="$(BCB)\Projects;D:\Cpp\Projekt\PingPong;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="$(BCB)\Projects;D:\Cpp\Projekt\PingPong;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="snd;$(BCB)\Projects;D:\Cpp\Projekt\PingPong;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="snd;$(BCB)\Projects;D:\Cpp\Projekt\PingPong;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
@@ -45,6 +45,7 @@
       <FILE FILENAME="Project1.res" FORMNAME="" UNITNAME="Project1.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Project1.cpp" FORMNAME="" UNITNAME="Project1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit1.cpp" FORMNAME="Form1" UNITNAME="Unit1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="snd\resources.rc" FORMNAME="" UNITNAME="resources.rc" CONTAINERID="RCCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
